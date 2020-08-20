@@ -1,0 +1,24 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+    <bean id="studentDao" class="dir.v2.dao.StudentDaoImpl" />
+    <bean id="studentService" class="dir.v2.service.StudentServiceImpl" >
+        <property name="studentDao" ref="studentDao" />
+    </bean>
+
+    <bean id="oxmService" class="dir.v2.service.OXMService">
+        <property name="marshaller" ref="marshaller" />
+        <property name="unmarshaller" ref="marshaller" />
+    </bean>
+    <bean id="marshaller" class="org.springframework.oxm.castor.CastorMarshaller">
+        <property name="mappingLocation" value="WEB-INF/studentMapping.xml" />
+    </bean>
+
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate" />
+
+    <bean id="restCallService" class="dir.v2.service.RestCallService">
+        <property name="restTemplate" ref="restTemplate" />
+    </bean>
+
+</beans>

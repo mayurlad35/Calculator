@@ -1,0 +1,24 @@
+<mapping>
+    <class name="dir.v2.StudentList">
+        <field name="studentList" type="dir.v2.Student"
+               collection="arraylist">
+            <bind-xml name="student" />
+        </field>
+    </class>
+    <class name="dir.v2.Student">
+
+        <map-to xml="student-data" />
+
+        <field name="age" type="int">
+            <bind-xml name="age" node="element" />
+        </field>
+
+        <field name="email" type="string">
+            <bind-xml name="email" node="element" />
+        </field>
+
+        <field name="name" type="string">
+            <bind-xml name="name" node="element" />
+        </field>
+    </class>
+</mapping>
