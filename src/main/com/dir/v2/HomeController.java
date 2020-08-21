@@ -27,7 +27,7 @@ public class HomeController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String getHomepage(Model model) {
-        model.addAttribute("msg", "banglore v1");
+        model.addAttribute("msg", "Calculator project");
         return "home";
     }
 
